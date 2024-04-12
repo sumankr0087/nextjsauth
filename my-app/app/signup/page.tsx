@@ -35,34 +35,41 @@ export default function SignupPage() {
     }, [user])
     return (
         <div className='flex flex-col items-center justify-center min-h-screen py-2'>
-            <h1>{loading?"Processing":"Signup"}</h1>
-            <hr/>
-            <label htmlFor='username'>Username</label>
-            <input 
-            className='text-black'
-            id='username'
-            placeholder='username'
-            value={user.username}
-            onChange={(e) => setUser({...user, username:e.target.value})}
-            type='text' />
-            <label htmlFor='username'>Email</label>
-            <input 
-            className='text-black'
-            id='email'
-            placeholder='email'
-            value={user.email}
-            onChange={(e) => setUser({...user, email:e.target.value})}
-            type='email' />
-            <label htmlFor='username'>Password</label>
-            <input 
-            className='text-black'
-            id='password'
-            placeholder='password'
-            value={user.password}
-            onChange={(e) => setUser({...user, password:e.target.value})}
-            type='password' />
-            <button className='p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600' onClick={onSignup}>{buttonDisabled? "No Signup": "Signup"}</button>
-            <Link href="/login">Visit login page</Link>
+            <h1 className='text-4xl'>{loading ? "Processing....." : "Signup"}</h1>
+            <hr />
+            <label className='p-4' htmlFor='username'>Username</label>
+            <input
+                className='text-black p-4'
+                id='username'
+                placeholder='username'
+                value={user.username}
+                onChange={(e) => setUser({ ...user, username: e.target.value })}
+                type='text' />
+            <label className='p-4' htmlFor='username'>Email</label>
+            <input
+                className='text-black p-4'
+                id='email'
+                placeholder='email'
+                value={user.email}
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                type='email' />
+            <label className='p-4' htmlFor='username'>Password</label>
+            <input
+                className='text-black p-4'
+                id='password'
+                placeholder='password'
+                value={user.password}
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
+                type='password' />
+                <button 
+  className={`p-2 mt-4 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 ${buttonDisabled ? '' : 'cursor-pointer'}`} 
+  onClick={onSignup}
+>
+  {buttonDisabled ? "No Signup" : "Signup"}
+</button>
+
+            {/* <button className='p-2 cursor-pointer mt-4 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600' onClick={onSignup}>{buttonDisabled ? "No Signup" : "Signup"}</button> */}
+            <Link className='cursor-pointer' href="/login">Visit login page</Link>
         </div>
     )
 }
